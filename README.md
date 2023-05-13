@@ -1,4 +1,4 @@
-# MyReadsL A Book Tracking App
+# MyReads: A Book Tracking App
 
 ## About the project
 This project allows a user to manage a book list and organize them according to different shelves: Currently Reading, Want to Read and Read. The user is able to search books by clicking on a (+) button, and from there, organize their selected books according to shelf.
