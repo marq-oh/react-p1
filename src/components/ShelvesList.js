@@ -2,6 +2,7 @@ import { useState } from "react";
 import Shelf from "./Shelf";
 
 const ShelvesList = ({ bookslist, onMoveBook }) => {
+  // Filter books based on shelf category
   const currentlyReadingBooks = bookslist.filter(
     (book) => book.shelf === "currentlyReading"
   );
@@ -10,6 +11,7 @@ const ShelvesList = ({ bookslist, onMoveBook }) => {
 
   return (
     <div className="list-books-content">
+      {/* Render the Shelf component for each shelf category */}
       <Shelf title="Currently Reading" shelfbooks={currentlyReadingBooks} onMoveBook={onMoveBook} />
       <Shelf title="Want to Read" shelfbooks={wantToReadBooks} onMoveBook={onMoveBook} />
       <Shelf title="Read" shelfbooks={readBooks} onMoveBook={onMoveBook} />

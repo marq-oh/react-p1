@@ -10,6 +10,7 @@ const App = () => {
   const [showSearchPage, setShowSearchPage] = useState(false);
 
   useEffect(() => {
+    // Fetch books data from the API when the component mounts
     const fetchBooks = async () => {
       const booksData = await getAll();
       setBooks(booksData);
@@ -20,7 +21,9 @@ const App = () => {
 
   const onMoveBook = async (book, shelf) => {
     try {
+      // Update the book's shelf on the server
       await update(book, shelf);
+      // Update the state of the books in the app
       const updatedBooks = books.map((b) => {
         if (b.id === book.id) {
           return { ...b, shelf };
@@ -35,10 +38,12 @@ const App = () => {
   };
 
   const handleNavigateToSearch = () => {
+    // Set the state to show the search page
     setShowSearchPage(true);
   };
 
   const handleNavigateBack = () => {
+    // Set the state to hide the search page and go back to the main page
     setShowSearchPage(false);
   };
 
@@ -50,6 +55,7 @@ const App = () => {
             exact
             path="/"
             element={
+              // Render the main page component
               <div className="list-books">
                 <div className="list-books-title">
                   <h1>MyReads</h1>
@@ -66,6 +72,7 @@ const App = () => {
           <Route
             path="/search"
             element={
+              // Render the search page component
               <Search
                 bookslist={books}
                 onMoveBook={onMoveBook}
